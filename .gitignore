@@ -1,0 +1,5 @@
+# IDE temporary files
+.idea/
+
+# Other
+/node_modules/
