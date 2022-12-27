@@ -12,6 +12,7 @@ media
 
 # Other
 /node_modules/
+node_modules/
 .node
 
 # Visual Studio Code # 
