@@ -7,13 +7,12 @@
 Gashapon Arcade Machine Simulator developed with React, Django and TailwindCSS.
 
 A simple browser game, where users can buy coins for a gachapon vending machine in order to obtain a random sticker. Users can register, login, purchase in-game coins and see the stickers they have obtained so far.
-
-### External Links
- - <a href="https://trello.com/b/GNjIDuL0/examensarbete-liudmila">Project Trello Board (logs and docs)</a>
- - <a href="https://github.com/genshindev/api">Genshin Impact API (used for character info puller)</a>
  
 ## Goal and requirements
 The project goal is to create an ecommerce fullstack web application in order to broaden and deepen understanding of development principles and technologies covered in the previous courses. As such, the final result is supposed to combine both client-side and server-side software.
+
+## Key Features
+ - React app built from scratch - bundled with Webpack, no create-react-app
 
 ## Quick Setup
 
@@ -32,6 +31,10 @@ npm run dev
 # Build for production
 npm run build
 ```
+
+### External Links
+ - <a href="https://trello.com/b/GNjIDuL0/examensarbete-liudmila">Project Trello Board (logs and docs)</a>
+ - <a href="https://github.com/genshindev/api">Genshin Impact API (used for character info puller)</a>
 
 ## Credits
 
