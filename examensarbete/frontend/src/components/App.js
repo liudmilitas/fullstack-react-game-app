@@ -1,10 +1,14 @@
 import React from "react";
 import { render } from "react-dom";
+import Header from "./elems/Header";
+import Footer from "./elems/Footer";
 
 export default function App() {
   return (
     <div>
-      <p class="text-3xl font-bold underline">yo mom</p>
+      <Header />
+      <p class="text-3xl font-bold underline text-red-500">yo mom</p>
+      <Footer />
     </div>
   );
 }
