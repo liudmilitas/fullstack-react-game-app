@@ -19,3 +19,4 @@ node_modules/
 .vscode/
 
 examensarbete/db.sqlite3
+examensarbete/frontend/static/frontend/main.js
