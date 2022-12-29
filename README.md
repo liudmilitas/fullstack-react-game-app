@@ -12,21 +12,22 @@ A simple browser game, where users can buy coins for a gachapon vending machine 
 The project goal is to create an ecommerce fullstack web application in order to broaden and deepen understanding of development principles and technologies covered in the previous courses. As such, the final result is supposed to combine both client-side and server-side software.
 
 ## Key Features
- - React app built from scratch - bundled with Webpack, no create-react-app
+ - React app built from scratch - bundled with Webpack, no *create-react-app* used
 
 ## Quick Setup
 
-### System Requirements
- - npm 6 or higher
+### Requirements
+ - Node.js: ^12.0.0
+ - NPM or any other Node.js package manager
  - Python 3.0 or higher
  - Django 4.0 or higher
 
 ```bash
 # Install dependencies
 npm install
-# Serve API on localhost:8000
+# Serve API on localhost:8000 (from root)
 python examensarbete/manage.py runserver
-# Run webpack (from root)
+# Run webpack (from '.\examensarbete\frontend' folder)
 npm run dev
 # Build for production
 npm run build
