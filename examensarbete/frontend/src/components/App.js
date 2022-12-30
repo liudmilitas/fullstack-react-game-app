@@ -2,12 +2,14 @@ import React from "react";
 import { render } from "react-dom";
 import Header from "./elems/Header";
 import Footer from "./elems/Footer";
+import Machine from "./gacha/Machine";
 
 export default function App() {
   return (
-    <div>
+    <div className="flex flex-col items-center h-screen">
       <Header />
-      <p class="text-3xl font-bold underline text-red-500">yo mom</p>
+      <p className="text-3xl font-bold underline text-red-500">yo mom</p>
+      <Machine />
       <Footer />
     </div>
   );
