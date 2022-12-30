@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import Header from "./elems/Header";
 import Footer from "./elems/Footer";
 import Machine from "./gacha/Machine";
+import CharacterInfo from "./elems/CharacterInfo";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <p className="text-3xl font-bold underline text-red-500">yo mom</p>
       <Machine />
       <Footer />
+      <CharacterInfo />
     </div>
   );
 }

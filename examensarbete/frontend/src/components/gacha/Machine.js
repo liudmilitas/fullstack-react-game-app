@@ -17,12 +17,14 @@ export default function Machine() {
         </div>
       </div>
       <div className="interaction-block">
-        <div class="prize-container">
-          <div class="prize-ball-container"></div>
-          <div class="prize-reward-container">
-            <div class="shine">{/*<img src="ADD ANIMATED SHINE FERE" />*/}</div>
-            <div class="prize">
-              <img class="wiggle" src="" />
+        <div className="prize-container">
+          <div className="prize-ball-container"></div>
+          <div className="prize-reward-container">
+            <div className="shine">
+              {/*<img src="ADD ANIMATED SHINE FERE" />*/}
+            </div>
+            <div className="prize">
+              <img className="wiggle" src="" />
             </div>
           </div>
         </div>
