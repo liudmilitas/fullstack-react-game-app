@@ -7,7 +7,7 @@ import CharacterInfo from "./elems/CharacterInfo";
 
 export default function App() {
   return (
-    <div className="flex flex-col items-center h-screen">
+    <div className="flex flex-col items-center content-center h-screen w-full">
       <Header />
       <p className="text-3xl font-bold underline text-red-500">yo mom</p>
       <Machine />
