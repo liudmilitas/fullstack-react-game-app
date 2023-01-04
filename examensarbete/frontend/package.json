@@ -43,7 +43,9 @@
     "css-loader": "^6.7.3",
     "gsap": "^3.11.4",
     "node-sass": "^8.0.0",
+    "react-confetti": "^6.1.0",
     "react-router-dom": "^6.6.1",
+    "react-use": "^17.4.0",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1"

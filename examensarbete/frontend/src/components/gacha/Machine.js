@@ -2,10 +2,15 @@ import React from "react";
 import { gsap } from "gsap";
 import MachineFrame from "/src/svg/machine-frame.svg";
 import Handle from "/src/svg/handle.svg";
+import { useWindowSize } from "react-use";
+import Confetti from "react-confetti";
 
 export default function Machine() {
+  const { width, height } = useWindowSize();
+
   return (
     <div className="container">
+      <Confetti width={width} height={height} />
       <div className="game-block">
         <div className="machine-container">
           <div className="backboard"></div>
