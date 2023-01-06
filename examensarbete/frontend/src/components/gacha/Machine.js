@@ -2,13 +2,9 @@ import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import MachineFrame from "/src/svg/machine-frame.svg";
 import Handle from "/src/svg/handle.svg";
-import { useWindowSize } from "react-use";
-import Confetti from "react-confetti";
 import PrizeModal from "./PrizeModal";
 
 export default function Machine() {
-  const { width, height } = useWindowSize();
-
   /*
   const addAnimClass = ($e, clazz, timing) => {
 	const _func = $e => {
@@ -23,43 +19,12 @@ export default function Machine() {
 	}
 }
   */
-
   let balls = [],
     started = false,
     prizeBall;
   let $app, $machine, $handle, $balls;
   let $$jitters = [];
-  let prize;
   const SPEED = 1;
-
-  function getPrize() {
-    const prizes = [
-      {
-        image: "/src/image/ayaka.png",
-        title: "Ayaka",
-      },
-      {
-        image: "/src/image/raiden.png",
-        title: "Raiden",
-      },
-      {
-        image: "/src/image/keqing.png",
-        title: "Keqing",
-      },
-    ];
-
-    return prizes[~~(prizes.length * Math.random())];
-  }
-
-  // setting source attribute for sticker image
-  /* const stickerImageRef = useRef();
-    const [stickerImage, setStickerImage] = useState();
-    useEffect(() => {
-      getPrize().then((e) => {
-        prize = e;
-        stickerImageRef.current.setStickerImage(e.image);
-      });
-    }); */
 
   const init = async () => {
     $machine = document.querySelector(".machine-container");
@@ -505,7 +470,6 @@ export default function Machine() {
 
   return (
     <div id="app" className="w-full h-full relative">
-      <Confetti width={width} height={height} />
       <div className="container w-full h-full overflow-hidden relative">
         <div className="game-block w-full h-full overflow-hidden flex items-center content-center relative">
           <div className="machine-container relative whitespace-nowrap">
