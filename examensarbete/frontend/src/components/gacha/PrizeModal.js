@@ -34,7 +34,7 @@ export default function PrizeModal() {
   useEffect(() => {
     prize = getPrize();
     setStickerImage(prize.image);
-  });
+  }, []);
 
   return (
     <div className="prize-reward-container w-full h-full absolute top-0 left-0 z-1">
