@@ -12,6 +12,7 @@ export default function Footer() {
           <a
             className="lg:text-lg font-bold leading-relaxed px-3 flex items-center justify-center mr-4 py-2 whitespace-nowrap text-white fill-white hover:opacity-75 hover:underline"
             href="https://github.com/liudmilitas/fullstack-react-game-app"
+            target="_blank"
           >
             <img className="h-6 fill-white mr-2 mb-1" src={GitHubLogo} />
             GitHub Repo

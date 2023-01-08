@@ -6,7 +6,7 @@ import Shop from "./pages/Shop";
 export default function App() {
   return (
     <div className="flex flex-col items-center content-center h-screen w-full justify-between">
-      <Shop />
+      <Home />
     </div>
   );
 }

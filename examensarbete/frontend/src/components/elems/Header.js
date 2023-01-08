@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import MoraCoin from "/src/image/mora.png";
 import MenuIcon from "/src/svg/menu.svg";
+import Logo from "/src/svg/logo.svg";
 import { createPopper } from "@popperjs/core";
 import { useWindowSize } from "react-use";
 
@@ -84,13 +85,14 @@ function DesktopNav() {
 export default function Header() {
   const { width } = useWindowSize();
   return (
-    <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-indigo-400 mb-3 w-full">
+    <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-indigo-400 w-full">
       <div className="container px-4 mx-auto flex items-center justify-between">
         <div className="w-full relative flex justify-between lg:w-auto">
           <a
-            className="text-xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+            className="text-xl font-bold leading-relaxed flex mr-4 whitespace-nowrap uppercase text-white items-center content-center"
             href="#"
           >
+            <img className="h-12 mr-3" src={Logo} />
             Gachapon
           </a>
         </div>
