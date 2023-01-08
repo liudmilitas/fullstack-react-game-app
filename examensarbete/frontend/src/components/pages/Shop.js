@@ -4,7 +4,7 @@ import Header from "../elems/Header";
 
 export default function Shop() {
   return (
-    <div className="flex flex-col items-center content-center h-screen w-full">
+    <div className="flex flex-col items-center content-center h-screen w-full justify-between">
       <Header />
       <p className="text-3xl font-bold underline">shop</p>
       <Footer />

@@ -1,12 +1,9 @@
 from django.db import models
-from django.conf import settings
-from datetime import datetime
+from django.contrib.auth.models import User
 
 class Sticker(models.Model):
-# Fields
-   name = models.CharField(max_length=50)
-   url = models.CharField(max_length=200)
-   character = models.CharField(max_length=50)
+   name = models.CharField(max_length=50, null=True, blank=True)
+   url = models.CharField(max_length=200, null=True, blank=True)
 
    # Element type field
    class Element_types(models.TextChoices):
@@ -27,7 +24,7 @@ class Sticker(models.Model):
    class Characters(models.TextChoices):
       # >>> (sticker).character
       # 'ALBE'
-
+      # VS
       # >>> (sticker).get_character_display()
       # 'Albedo'
 
@@ -89,31 +86,25 @@ class Sticker(models.Model):
         YUNJIN = 'YUNJ', 'yun-jin'
         ZHONGLI = 'ZHON', 'zhongli'
 
-
    character = models.CharField(
           max_length=4,
           choices=Characters.choices,
           default=Characters.ALBEDO
    )
 
+   def __str__(self):
+        return self.name
+
 class Game(models.Model):
-   player = models.ForeignKey(
-      settings.AUTH_USER_MODEL, 
-      on_delete=models.CASCADE
+   user = models.ForeignKey(
+      User, on_delete=models.CASCADE
       )
    prize = models.ForeignKey(Sticker, on_delete=models.CASCADE)
-   date_played = models.DateField()
-
-class Wallet(models.Model):
-   player = models.ForeignKey(
-      settings.AUTH_USER_MODEL, 
-      on_delete=models.CASCADE
-   )
-   balance = models.IntegerField()
 
 class Transaction(models.Model):
-   account = models.ForeignKey(
-      Wallet, on_delete=models.CASCADE
+   user = models.ForeignKey(
+      User, on_delete=models.SET_NULL, null=True
    )
-   amount = models.IntegerField()
-   transaction_date = models.DateField()
+   amount = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True)
+   coins_amount = models.IntegerField(default=0, null=True, blank=True)
+   transaction_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
