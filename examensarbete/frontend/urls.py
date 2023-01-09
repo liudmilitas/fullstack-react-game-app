@@ -3,4 +3,6 @@ from frontend.views import index
 
 urlpatterns = [
     path('', index, name="index"),
+    path('shop', index),
+    path('gallery', index)
 ]
