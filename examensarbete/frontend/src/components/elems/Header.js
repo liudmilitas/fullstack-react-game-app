@@ -6,7 +6,11 @@ import { createPopper } from "@popperjs/core";
 import { useWindowSize } from "react-use";
 
 let navLinks = [];
-navLinks = ["Shop", "Gallery", "Log out"];
+navLinks = [
+  { name: "Shop", href: "/shop" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Log out", href: "#" },
+];
 
 function MobileNav() {
   const [dropdownPopoverShow, setDropdownPopoverShow] = useState(false);
@@ -45,18 +49,19 @@ function MobileNav() {
               ref={popoverDropdownRef}
               className={
                 (dropdownPopoverShow ? "block " : "hidden ") +
-                "text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1"
+                "text-base z-50 float-left py-2 list-none text-left rounded shadow-lg"
               }
               style={{ minWidth: "12rem" }}
             >
               {navLinks.map((link) => (
                 <a
-                  href="#"
-                  className="text-white bg-indigo-500 text-lg py-2 px-4 font-normal block w-full whitespace-nowrap hover:underline"
+                  href={link.href}
+                  className="text-white bg-indigo-500 text-lg py-2 px-4 font-normal block w-full whitespace-nowrap hover:underline italic"
                   onClick={(e) => e.preventDefault()}
-                  key={link}
+                  key={link.name}
+                  title={link.name}
                 >
-                  {link}
+                  {link.name}
                 </a>
               ))}
             </div>
@@ -69,14 +74,15 @@ function MobileNav() {
 
 function DesktopNav() {
   return navLinks.map((link) => (
-    <li className="nav-item" key={link}>
+    <li className="nav-item" key={link.name}>
       <a
         className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:underline"
-        href="#"
+        href={link.href}
+        title={link.name}
       >
-        <i className="lg:text-lg leading-lg text-white">
-          <span className="ml-2 whitespace-nowrap">{link}</span>
-        </i>
+        <span className="lg:text-lg leading-lg text-white ml-2 whitespace-nowrap italic">
+          {link.name}
+        </span>
       </a>
     </li>
   ));
@@ -90,7 +96,8 @@ export default function Header() {
         <div className="w-full relative flex justify-between lg:w-auto">
           <a
             className="text-xl font-bold leading-relaxed flex mr-4 whitespace-nowrap uppercase text-white items-center content-center"
-            href="#"
+            href="/"
+            title="Home"
           >
             <img className="h-12 mr-3" src={Logo} />
             Gachapon
@@ -104,9 +111,9 @@ export default function Header() {
                 href="#"
               >
                 <img className="h-6" src={MoraCoin} />
-                <i className="text-lg leading-lg text-white hover:opacity-75">
-                  <span className="ml-2">50</span>
-                </i>
+                <span className="ml-2 text-lg leading-lg text-white hover:opacity-75">
+                  50
+                </span>
               </a>
             </li>
             {width >= 1024 ? <DesktopNav /> : <MobileNav />}

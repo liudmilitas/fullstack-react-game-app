@@ -5,7 +5,7 @@ const products = [
     image:
       "https://static.wikia.nocookie.net/gensin-impact/images/8/84/Item_Mora.png/",
     price: 30,
-    worth: 5,
+    coins: 5,
   },
   {
     _id: "1",
@@ -13,7 +13,7 @@ const products = [
     image:
       "https://static.wikia.nocookie.net/gensin-impact/images/8/84/Item_Mora.png/",
     price: 100,
-    worth: 20,
+    coins: 20,
   },
   {
     _id: "1",
@@ -21,6 +21,8 @@ const products = [
     image:
       "https://static.wikia.nocookie.net/gensin-impact/images/8/84/Item_Mora.png/",
     price: 250,
-    worth: 50,
+    coins: 50,
   },
 ];
+
+export default products;

@@ -26,3 +26,9 @@ html {
     user-select: none;
   }
 }
+
+.product-card {
+  box-shadow: inset 3px 3px 10px 0 #000000;
+  content: "";
+  display: inline-block;
+}
