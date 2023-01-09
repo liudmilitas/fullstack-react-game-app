@@ -56,8 +56,7 @@ function MobileNav() {
               {navLinks.map((link) => (
                 <a
                   href={link.href}
-                  className="text-white bg-indigo-500 text-lg py-2 px-4 font-normal block w-full whitespace-nowrap hover:underline italic"
-                  onClick={(e) => e.preventDefault()}
+                  className="text-white bg-indigo-500 hover:bg-indigo-700 text-lg py-2 px-4 font-normal block w-full whitespace-nowrap hover:underline italic"
                   key={link.name}
                   title={link.name}
                 >
