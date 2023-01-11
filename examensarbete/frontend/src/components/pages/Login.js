@@ -1,30 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import GoogleIcon from "/src/svg/google-icon.svg";
 import GitHubDark from "/src/svg/github-dark.svg";
 
 export default function Login() {
-  // States for login
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  function handleInputChange(e) {
-    const { id, value } = e.target;
-    if (id === "email") {
-      setEmail(value);
-    }
-    if (id === "password") {
-      setPassword(value);
-    }
-  }
-
-  function onLoginClick() {
-    const userData = {
-      email: email,
-      password: password,
-    };
-    console.log("Login " + userData.email + " " + userData.password);
-  }
-
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden w-full">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
@@ -40,10 +18,6 @@ export default function Login() {
               Email
             </label>
             <input
-              id="email"
-              required
-              onChange={(e) => handleInputChange(e)}
-              value={email}
               type="email"
               className="block w-full px-4 py-2 mt-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -56,10 +30,6 @@ export default function Login() {
               Password
             </label>
             <input
-              id="password"
-              onChange={(e) => handleInputChange(e)}
-              required
-              value={password}
               type="password"
               className="block w-full px-4 py-2 mt-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -68,10 +38,7 @@ export default function Login() {
             Forget your password?
           </a>
           <div className="mt-6">
-            <button
-              onClick={onLoginClick}
-              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-indigo-700 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
-            >
+            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-indigo-700 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">
               Login
             </button>
           </div>
