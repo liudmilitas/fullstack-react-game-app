@@ -1,5 +1,4 @@
 import React from "react";
-import { render } from "react-dom";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -23,6 +22,3 @@ export default function App() {
     </div>
   );
 }
-
-const app = document.getElementById("app");
-render(<App />, app);
