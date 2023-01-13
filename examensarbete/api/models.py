@@ -13,6 +13,7 @@ class Sticker(models.Model):
         ANEMO = 'A', 'Anemo'
         CRYO = 'C', 'Cryo'
         ELECTRO = 'E', 'Electro'
+        GEO = 'G', 'Geo'
 
    element_type = models.CharField(
           max_length=1,
@@ -92,6 +93,14 @@ class Sticker(models.Model):
           default=Characters.ALBEDO
    )
 
+   @staticmethod
+   def get_sticker_by_id(ids):
+        return Sticker.objects.filter(id__in=ids)
+  
+   @staticmethod
+   def get_all_stickers():
+        return Sticker.objects.all()
+
    def __str__(self):
         return self.name
 
@@ -101,6 +110,13 @@ class Game(models.Model):
       )
    prize = models.ForeignKey(Sticker, on_delete=models.CASCADE)
 
+   def saveGame(self):
+        self.save()
+  
+   @staticmethod
+   def get_games_by_user(user_id):
+      return Game.objects.filter(user=user_id)
+
 class Transaction(models.Model):
    user = models.ForeignKey(
       User, on_delete=models.SET_NULL, null=True
@@ -108,3 +124,10 @@ class Transaction(models.Model):
    amount = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True)
    coins_amount = models.IntegerField(default=0, null=True, blank=True)
    transaction_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+   def saveTransaction(self):
+        self.save()
+  
+   @staticmethod
+   def get_transactions_by_user(user_id):
+      return Game.objects.filter(user=user_id).order_by('-transaction_date')
