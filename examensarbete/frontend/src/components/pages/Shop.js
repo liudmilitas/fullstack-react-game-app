@@ -7,10 +7,10 @@ import products from "../elems/products";
 export default function Shop() {
   function ProductList() {
     return (
-      <ul className="flex flex-col lg:flex-row md:flex-row w-full justify-center items-center content-center gap-4">
+      <ul className="flex flex-col lg:flex-row md:flex-row w-full justify-center items-center content-center gap-8">
         {products.map((product) => (
           <li
-            className="bg-[url('/src/image/product-bg.png')] w-[190px] h-[190px] bg-cover transition-all"
+            className="bg-[url('/src/image/product-bg.png')] w-[190px] h-[190px] bg-cover transition-all ease-out duration-500 hover:scale-110 hover:drop-shadow-[5px_5px_5px_rgba(79,70,229,0.9)]"
             key={product.name}
           >
             <button className="flex flex-col items-center content-center justify-end w-full h-full">

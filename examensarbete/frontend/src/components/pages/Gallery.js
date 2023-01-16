@@ -6,14 +6,21 @@ import CharacterInfo from "../gacha/CharacterInfo";
 
 export default function Gallery() {
   const GradientList = {
-    Pyro: "bg-gradient-to-t from-orange-400 to-red-600",
-    Hydro: "bg-gradient-to-t from-blue-300 to-blue-700",
-    Dendro: "bg-gradient-to-t from-lime-400 to-lime-700",
-    Anemo: "bg-gradient-to-t from-emerald-100 to-emerald-400",
-    Cryo: "bg-gradient-to-t from-sky-50 to-sky-300",
+    Pyro: "bg-gradient-to-t from-orange-600 to-red-400",
+    Hydro: "bg-gradient-to-t from-blue-700 to-blue-300",
+    Dendro: "bg-gradient-to-t from-lime-700 to-lime-400",
+    Anemo: "bg-gradient-to-t from-emerald-500 to-emerald-100",
+    Cryo: "bg-gradient-to-t from-sky-400 to-sky-100",
     Electro: "bg-gradient-to-t from-purple-600 via-violet-600 to-purple-200",
-    Geo: "bg-gradient-to-t from-amber-200 to-amber-600",
+    Geo: "bg-gradient-to-t from-amber-600 to-amber-200",
   };
+
+  const [showModal, setShowModal] = useState(false);
+  const [currentCharacter, setCurrentCharacter] = useState(false);
+
+  function toggleModal() {
+    setCurrentCharacter(false);
+  }
 
   function StickerList() {
     return (
@@ -22,21 +29,23 @@ export default function Gallery() {
           {stickers.map((sticker) => (
             <li
               className={
-                "w-[190px] h-[190px] bg-cover transition-all rounded-lg" +
+                "w-[190px] h-[190px] bg-cover transition-all rounded-lg hover:shadow-lg" +
                 " " +
                 GradientList[sticker.element_type]
               }
-              key={sticker.name}
+              key={stickers.indexOf(sticker)}
             >
               <button
-                onClick={() => setShowModal(true)}
+                onClick={(e) => {
+                  setCurrentCharacter(sticker.character);
+                }}
                 className="flex flex-col items-center content-center justify-end w-full h-full text-white"
               >
                 <img
-                  className=" shadow-white pb-3 h-32 drop-shadow-[0_35px_35px_rgba(0,0,0,1.2)] ease-out duration-500 hover:scale-110 "
+                  className="pb-3 h-32 drop-shadow-[0_22px_22px_rgba(255,255,255,0.9)] ease-out duration-500 hover:scale-110"
                   src={sticker.url}
                 />
-                <span className=" shadow-white pb-3 text-lg drop-shadow-[0_35px_35px_rgba(0,0,0,1)]">
+                <span className="pb-3 text-lg drop-shadow-xl">
                   {sticker.name}
                 </span>
               </button>
@@ -51,7 +60,12 @@ export default function Gallery() {
     <>
       <Header />
       <StickerList />
-      <CharacterInfo />
+      {currentCharacter && (
+        <CharacterInfo
+          toggleModal={toggleModal}
+          currentCharacter={currentCharacter}
+        />
+      )}
       <Footer />
     </>
   );
