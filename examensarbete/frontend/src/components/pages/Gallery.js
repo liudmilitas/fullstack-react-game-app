@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import Header from "../elems/Header";
 import Footer from "../elems/Footer";
 import stickers from "../elems/stickers";
-import CharacterInfoModal from "../gacha/CharacterInfoModal";
+import CharacterInfo from "../gacha/CharacterInfo";
 
 export default function Gallery() {
-  const [showModal, setShowModal] = useState(false);
-
   const GradientList = {
     Pyro: "bg-gradient-to-t from-orange-400 to-red-600",
     Hydro: "bg-gradient-to-t from-blue-300 to-blue-700",
@@ -19,7 +17,7 @@ export default function Gallery() {
 
   function StickerList() {
     return (
-      <section class="h-fit px-5 py-2 mx-auto">
+      <section className="h-fit px-5 py-2 mx-auto">
         <ul className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center content-center gap-4">
           {stickers.map((sticker) => (
             <li
@@ -50,7 +48,7 @@ export default function Gallery() {
     <>
       <Header />
       <StickerList />
-      {showModal && <CharacterInfoModal />}
+      <CharacterInfo />
       <Footer />
     </>
   );
