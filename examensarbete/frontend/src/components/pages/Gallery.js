@@ -24,24 +24,21 @@ export default function Gallery() {
           {stickers.map((sticker) => (
             <li
               className={
-                "w-[190px] h-[190px] bg-cover transition-all rounded-lg" +
+                "w-[200px] h-[200px] transition-all rounded-lg p-1.5 mx-auto" +
                 " " +
                 GradientList[sticker.element_type]
               }
               key={sticker.name}
             >
-              <button
-                onClick={() => setShowModal(true)}
-                className="flex flex-col items-center content-center justify-end w-full h-full text-white"
-              >
-                <img
-                  className=" shadow-white pb-3 h-32 drop-shadow-[0_35px_35px_rgba(0,0,0,1.2)] ease-out duration-500 hover:scale-110 "
-                  src={sticker.url}
-                />
-                <span className=" shadow-white pb-3 text-lg drop-shadow-[0_35px_35px_rgba(0,0,0,1)]">
-                  {sticker.name}
-                </span>
-              </button>
+              <div className="bg-white p-4 rounded-lg">
+                <button className="flex flex-col items-center content-center justify-end w-full h-full">
+                  <img
+                    className="pb-3 h-32 drop-shadow-2xl ease-in-out duration-500 hover:scale-110 "
+                    src={sticker.url}
+                  />
+                  <span className="text-lg">{sticker.name}</span>
+                </button>
+              </div>
             </li>
           ))}
         </ul>
