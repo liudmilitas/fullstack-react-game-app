@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../elems/Header";
 import Footer from "../elems/Footer";
 import stickers from "../elems/stickers";
+import CharacterInfoModal from "../gacha/CharacterInfoModal";
 
 export default function Gallery() {
+  const [showModal, setShowModal] = useState(false);
+
   const GradientList = {
     Pyro: "bg-gradient-to-t from-orange-400 to-red-600",
     Hydro: "bg-gradient-to-t from-blue-300 to-blue-700",
@@ -27,7 +30,10 @@ export default function Gallery() {
               }
               key={sticker.name}
             >
-              <button className="flex flex-col items-center content-center justify-end w-full h-full text-white">
+              <button
+                onClick={() => setShowModal(true)}
+                className="flex flex-col items-center content-center justify-end w-full h-full text-white"
+              >
                 <img
                   className=" shadow-white pb-3 h-32 drop-shadow-[0_35px_35px_rgba(0,0,0,1.2)] ease-out duration-500 hover:scale-110 "
                   src={sticker.url}
@@ -47,6 +53,7 @@ export default function Gallery() {
     <>
       <Header />
       <StickerList />
+      {showModal && <CharacterInfoModal />}
       <Footer />
     </>
   );
