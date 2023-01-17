@@ -35,18 +35,18 @@ export default function Gallery() {
 
   function StickerList() {
     return (
-      <section className="h-full px-5 py-2 mx-auto w-full flex flex-col items-center">
-        <h2 className="text-xl self-start">
+      <section className="h-fit px-5 py-2 mx-auto w-full flex flex-col items-center">
+        <h2 className="text-xl self-start p-4">
           <a href="/home" className="hover:underline hover:text-indigo-900">
             HOME
           </a>
           / GALLERY
         </h2>
-        <ul className="w-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-self-center justify-center items-center content-center gap-4">
+        <ul className="p-2 w-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-self-center justify-center items-center content-center gap-4">
           {stickers.map((sticker) => (
             <li
               className={
-                "w-[190px] h-[190px] bg-cover transition-all rounded-lg hover:shadow-xl text-white hover:underline" +
+                "w-[190px] h-[190px] bg-cover transition-all rounded-lg shadow-sm hover:shadow-xl text-white hover:underline" +
                 " " +
                 GradientList[sticker.element_type]
               }
