@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../elems/Header";
 import Footer from "../elems/Footer";
-import stickers from "../elems/stickers";
 import CharacterInfo from "../gacha/CharacterInfo";
+import axios from "axios";
 
 export default function Gallery() {
+  const [stickers, setStickers] = useState([]);
+
+  useEffect(() => {
+    async function fetchStickers() {
+      const { data } = await axios.get("/api/stickers");
+      setStickers(data);
+    }
+
+    fetchStickers();
+  }, []);
+
   const GradientList = {
     Pyro: "bg-gradient-to-t from-orange-600 to-red-400",
     Hydro: "bg-gradient-to-t from-blue-700 to-blue-300",
@@ -24,8 +35,14 @@ export default function Gallery() {
 
   function StickerList() {
     return (
-      <section className="h-fit px-5 py-2 mx-auto">
-        <ul className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center content-center gap-4">
+      <section className="h-full px-5 py-2 mx-auto w-full flex flex-col items-center">
+        <h2 className="text-xl self-start">
+          <a href="/home" className="hover:underline hover:text-indigo-900">
+            HOME
+          </a>
+          / GALLERY
+        </h2>
+        <ul className="w-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-self-center justify-center items-center content-center gap-4">
           {stickers.map((sticker) => (
             <li
               className={

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+// TODO: Render delay!!
+
 export default function CharacterInfo({ currentCharacter, toggleModal }) {
   const [character, setCharacter] = useState({});
 
