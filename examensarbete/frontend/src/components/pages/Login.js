@@ -35,7 +35,7 @@ export default function Login() {
           <div className="mb-2">
             <label
               htmlFor="email"
-              className="block text-sm font-semibold text-gray-800"
+              className="block font-semibold text-gray-800"
             >
               Email
             </label>
@@ -51,7 +51,7 @@ export default function Login() {
           <div className="mb-2">
             <label
               htmlFor="password"
-              className="block text-sm font-semibold text-gray-800"
+              className="block font-semibold text-gray-800"
             >
               Password
             </label>
@@ -64,7 +64,7 @@ export default function Login() {
               className="block w-full px-4 py-2 mt-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
-          <a href="#" className="text-xs text-indigo-600 hover:underline">
+          <a href="#" className="text-indigo-600 hover:underline">
             Forget your password?
           </a>
           <div className="mt-6">
@@ -82,16 +82,16 @@ export default function Login() {
         <div className="flex mt-4 gap-x-2">
           <button
             type="button"
-            className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-indigo-600"
+            className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-indigo-600 hover:bg-indigo-200 hover:border-gray-900"
           >
             <img className="w-5 h-5 fill-current" src={GoogleIcon} />
           </button>
-          <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-indigo-600">
+          <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-indigo-600 hover:bg-indigo-200 hover:border-gray-900">
             <img className="w-5 h-5 fill-current" src={GitHubDark} />
           </button>
         </div>
 
-        <p className="mt-8 text-xs font-light text-center text-gray-700">
+        <p className="mt-8 font-light text-center text-gray-700 text-lg">
           {" "}
           No account yet?{" "}
           <a

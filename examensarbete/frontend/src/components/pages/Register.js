@@ -44,7 +44,7 @@ export default function Register() {
           <div className="mb-2">
             <label
               htmlFor="username"
-              className="block text-sm font-semibold text-gray-800"
+              className="block font-semibold text-gray-800"
             >
               Username
             </label>
@@ -60,7 +60,7 @@ export default function Register() {
           <div className="mb-2">
             <label
               htmlFor="email"
-              className="block text-sm font-semibold text-gray-800"
+              className="block font-semibold text-gray-800"
             >
               Email
             </label>
@@ -76,7 +76,7 @@ export default function Register() {
           <div className="mb-2">
             <label
               htmlFor="password"
-              className="block text-sm font-semibold text-gray-800"
+              className="block font-semibold text-gray-800"
             >
               Password
             </label>
@@ -92,7 +92,7 @@ export default function Register() {
           <div className="mb-2">
             <label
               htmlFor="confirmPassword"
-              className="block text-sm font-semibold text-gray-800"
+              className="block font-semibold text-gray-800"
             >
               Confirm Password
             </label>
@@ -120,16 +120,16 @@ export default function Register() {
         <div className="flex mt-4 gap-x-2">
           <button
             type="button"
-            className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-indigo-600"
+            className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-indigo-600 hover:bg-indigo-200 hover:border-gray-900"
           >
             <img className="w-5 h-5 fill-current" src={GoogleIcon} />
           </button>
-          <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-indigo-600">
+          <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-indigo-600 hover:bg-indigo-200 hover:border-gray-900">
             <img className="w-5 h-5 fill-current" src={GitHubDark} />
           </button>
         </div>
 
-        <p className="mt-8 text-xs font-light text-center text-gray-700">
+        <p className="mt-8 text-lg font-light text-center text-gray-700">
           {" "}
           Already have an account?{" "}
           <a
