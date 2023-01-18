@@ -6,12 +6,11 @@ export default function CharacterInfo({ currentCharacter, toggleModal }) {
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    function fetchCharacter() {
-      return fetch(
+    async function fetchCharacter() {
+      const { data } = await axios.get(
         "https://api.genshin.dev/characters/" + currentCharacter.toLowerCase()
-      )
-        .then((response) => response.json())
-        .then((data) => setCharacter(data));
+      );
+      setCharacter(data);
     }
 
     if (currentCharacter) {
