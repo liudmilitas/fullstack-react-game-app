@@ -12,9 +12,7 @@ export const stickerListReducer = (state = { stickers: [] }, action) => {
     case STICKER_LIST_SUCCESS:
       return {
         loading: false,
-        stickers: action.payload.stickers,
-        page: action.payload.page,
-        pages: action.payload.pages,
+        stickers: action.payload,
       };
 
     case STICKER_LIST_FAIL:
