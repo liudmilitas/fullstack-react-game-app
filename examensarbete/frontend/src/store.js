@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-// import rootReducer from "./reducers/roorReducer";
+import { stickerListReducer } from "./reducers/stickerReducers";
 
-const reducer = combineReducers({});
+const reducer = combineReducers({ stickerList: stickerListReducer });
 
 const initialState = {};
 

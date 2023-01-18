@@ -2,19 +2,17 @@ import React, { useState, useEffect } from "react";
 import Header from "../elems/Header";
 import Footer from "../elems/Footer";
 import CharacterInfo from "../gacha/CharacterInfo";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { listStickers } from "../../actions/stickerActions";
 
 export default function Gallery() {
-  const [stickers, setStickers] = useState([]);
+  const dispatch = useDispatch();
+  const stickerList = useSelector((state) => state.stickerList);
+  const { error, loading, stickers } = stickerList;
 
   useEffect(() => {
-    async function fetchStickers() {
-      const { data } = await axios.get("/api/stickers");
-      setStickers(data);
-    }
-
-    fetchStickers();
-  }, []);
+    dispatch(listStickers());
+  }, [dispatch]);
 
   const GradientList = {
     Pyro: "bg-gradient-to-t from-orange-600 to-red-400",
@@ -33,7 +31,7 @@ export default function Gallery() {
     setCurrentCharacter(false);
   }
 
-  function StickerList() {
+  function StickerListComponent() {
     return (
       <section className="h-fit px-5 py-2 mx-auto w-full flex flex-col items-center">
         <h2 className="text-xl self-start p-4">
@@ -76,7 +74,7 @@ export default function Gallery() {
   return (
     <>
       <Header />
-      <StickerList />
+      <StickerListComponent />
       {currentCharacter && (
         <CharacterInfo
           toggleModal={toggleModal}
