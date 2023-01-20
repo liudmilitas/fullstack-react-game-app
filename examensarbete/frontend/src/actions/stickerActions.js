@@ -9,7 +9,7 @@ export const listStickers = () => async (dispatch) => {
   try {
     dispatch({ type: STICKER_LIST_REQUEST });
 
-    const { data } = await axios.get("/api/stickers");
+    const { data } = await axios.get("/api/stickers/");
     dispatch({
       type: STICKER_LIST_SUCCESS,
       payload: data,
