@@ -4,7 +4,6 @@ from .models import Sticker
 from rest_framework_simplejwt.tokens import RefreshToken
 
 class StickerSerializer(serializers.ModelSerializer):
-    name = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = Sticker
         fields = '__all__'
