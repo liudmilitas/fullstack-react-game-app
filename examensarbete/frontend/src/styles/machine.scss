@@ -12,19 +12,6 @@
   }
 }
 
-.prize {
-  img {
-    height: 50vh;
-  }
-}
-
-.shine {
-  img {
-    height: 100vh;
-    animation: spin linear 5s infinite forwards;
-  }
-}
-
 .ball {
   $size: 8vh;
   $outline: #4c3fc2;

@@ -33,6 +33,8 @@ export default function Machine() {
     setSticker(false);
   }
 
+  const [handleClick, setHandleClick] = useState(false);
+
   return (
     <div className="container w-full h-full overflow-hidden flex items-center justify-center content-center mx-0">
       {loading ? (
@@ -49,13 +51,17 @@ export default function Machine() {
                 src={MachineFrame}
               />
 
-              <button>
-                <img
-                  onClick={getRandomSticker}
-                  className="handle absolute z-3 h-[2.5vh] left-[13%] top-[70%]"
-                  src={Handle}
-                  /*onClick={onClickHandle}*/
-                />
+              <button
+                className={`${
+                  handleClick && "rotate-45"
+                } transition duration-1000 ease-out handle absolute z-3 left-[13%] top-[70%]`}
+                onClick={() => {
+                  setHandleClick(true);
+                  // getRandomSticker();
+                }}
+                onAnimationEnd={() => setHandleClick(false)}
+              >
+                <img className="h-[2.5vh]" src={Handle} />
               </button>
             </div>
           </div>
