@@ -57,7 +57,7 @@ export default function Machine() {
                 } transition duration-1000 ease-out handle absolute z-3 left-[13%] top-[70%]`}
                 onClick={() => {
                   setHandleClick(true);
-                  // getRandomSticker();
+                  getRandomSticker();
                 }}
                 onAnimationEnd={() => setHandleClick(false)}
               >

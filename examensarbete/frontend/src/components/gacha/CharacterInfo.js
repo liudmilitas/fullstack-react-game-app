@@ -1,4 +1,5 @@
 import axios from "axios";
+import CloseButton from "/src/svg/close-button.svg";
 import React, { useEffect, useState } from "react";
 
 // TODO: Render delay!!
@@ -46,7 +47,7 @@ export default function CharacterInfo({ currentCharacter, toggleModal }) {
                     </h4>
                   </div>
                   <button className="" onClick={toggleModal}>
-                    <span className="text-xl">×</span>
+                    <img src={CloseButton} className="h-6 w-6" />
                   </button>
                 </div>
                 <table className="table-auto mx-0">
