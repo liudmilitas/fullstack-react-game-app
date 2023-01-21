@@ -9,6 +9,7 @@ let navLinks = [];
 navLinks = [
   { name: "Shop", href: "/shop" },
   { name: "Gallery", href: "/gallery" },
+  { name: "History", href: "/transactions" },
   { name: "Log out", href: "#" },
 ];
 

@@ -18,8 +18,8 @@ export const listStickers = () => async (dispatch) => {
     dispatch({
       type: STICKER_LIST_FAIL,
       payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
+        error.response && error.response.data.detail
+          ? error.response.data.detail
           : error.response,
     });
   }

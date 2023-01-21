@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import CloseButton from "/src/svg/close-button.svg";
 
-export default function PaymentModal({ coins, toggle }) {
+export default function PaymentModal({ coins, toggle, paymentHandler }) {
   return (
     <>
       {coins && (
         <section className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 outline-none focus:outline-none w-full">
-          <div className="w-[60%] my-6 mx-auto rounded-lg bg-white shadow-lg p-5 z-50 text-gray-700">
+          <div className="w-[90%] lg:w-[60%] my-6 mx-auto rounded-lg bg-white shadow-lg p-5 z-50 text-gray-700">
             <div className="mb-8 flex w-full justify-between">
               <h2 className="text-center font-bold text-xl uppercase">
                 Purchase {coins} coins
@@ -81,7 +81,7 @@ export default function PaymentModal({ coins, toggle }) {
               </div>
               <div className="px-2 w-1/3">
                 <input
-                  className="w-32 px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                  className="w-24 px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
                   placeholder="000"
                   type="number"
                 />
@@ -90,7 +90,7 @@ export default function PaymentModal({ coins, toggle }) {
 
             <div>
               <button
-                onClick={toggle}
+                onClick={paymentHandler}
                 className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"
               >
                 <span className="mdi mdi-lock-outline mr-1">PAY NOW</span>

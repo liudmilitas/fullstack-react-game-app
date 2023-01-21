@@ -1,11 +1,21 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Sticker
+from .models import Sticker, Game, Transaction
 from rest_framework_simplejwt.tokens import RefreshToken
 
 class StickerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sticker
+        fields = '__all__'
+
+class GameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Game
+        fields = '__all__'
+
+class TransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
         fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
@@ -15,7 +25,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['_id', 'username', 'email', 'name', 'isAdmin']
+        fields = ['id', '_id', 'username', 'email', 'name', 'isAdmin']
 
     def get_name(self, obj):
         name = obj.first_name

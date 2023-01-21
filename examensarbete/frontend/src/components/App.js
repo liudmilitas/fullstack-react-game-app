@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Gallery from "./pages/Gallery";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import TransactionHistory from "./pages/TransactionHistory";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/transactions" element={<TransactionHistory />} />
           <Route path="*">No page found:c</Route>
         </Routes>
       </Router>
