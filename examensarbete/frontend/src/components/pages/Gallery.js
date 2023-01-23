@@ -25,7 +25,6 @@ export default function Gallery() {
     Geo: "bg-gradient-to-t from-amber-600 to-amber-200",
   };
 
-  const [showModal, setShowModal] = useState(false);
   const [currentCharacter, setCurrentCharacter] = useState(false);
 
   function toggleModal() {

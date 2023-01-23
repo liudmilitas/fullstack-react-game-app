@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../elems/Loader";
 import { login } from "../../actions/userActions";
+import StartBackground from "../elems/StartBackground";
 
 export default function Login() {
   // States for login
@@ -28,16 +29,14 @@ export default function Login() {
   };
 
   return (
-    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden w-full">
-      {loading ? (
-        <Loader />
-      ) : error ? (
-        <h3>{error}</h3>
-      ) : (
+    <>
+      <div className="flex flex-col justify-center min-h-screen w-full">
         <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
           <h1 className="text-3xl font-semibold text-center text-indigo-700 uppercase">
             LOGIN
           </h1>
+          {error && <p>{error}</p>}
+          {loading && <Loader />}
           <form className="mt-6" onSubmit={submitHandler}>
             <div className="mb-2">
               <label
@@ -92,7 +91,8 @@ export default function Login() {
             </Link>
           </p>
         </div>
-      )}
-    </div>
+      </div>
+      <StartBackground />
+    </>
   );
 }

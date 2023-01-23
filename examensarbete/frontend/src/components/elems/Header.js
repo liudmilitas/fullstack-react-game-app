@@ -56,14 +56,6 @@ function MobileNav() {
               }
               style={{ minWidth: "12rem" }}
             >
-              <Link
-                to={"/profile"}
-                className="text-white bg-indigo-500 hover:bg-indigo-700 text-lg py-2 px-4 font-normal block w-full whitespace-nowrap hover:underline italic"
-                key={"profile"}
-                title={"Profile"}
-              >
-                My profile
-              </Link>
               {navLinks.map((link) => (
                 <Link
                   to={link.href}
