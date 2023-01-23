@@ -102,7 +102,7 @@ class Game(models.Model):
    user = models.ForeignKey(
       User, on_delete=models.CASCADE
       )
-   prize = models.ForeignKey(Sticker, on_delete=models.SET_NULL, null=True)
+   sticker = models.ForeignKey(Sticker, on_delete=models.SET_NULL, null=True)
    def __str__(self):
         return str(self._id)
 

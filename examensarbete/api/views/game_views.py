@@ -13,8 +13,6 @@ from api.serializers import GameSerializer
 def createGame(request):
     user = request.user
     sticker = request.sticker
-    data = request.data
-
 
     game = Game.objects.create(
         user=user,
@@ -28,7 +26,7 @@ def createGame(request):
 @permission_classes([IsAuthenticated])
 def getMyGames(request):
     user = request.user
-    games = user.games_set.all()
+    games = Game.objects.filter(user)
     serializer = GameSerializer(games, many=True)
     return Response(serializer.data)
 

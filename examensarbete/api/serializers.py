@@ -8,11 +8,6 @@ class StickerSerializer(serializers.ModelSerializer):
         model = Sticker
         fields = '__all__'
 
-class GameSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Game
-        fields = '__all__'
-
 class UserSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField(read_only=True)
     _id = serializers.SerializerMethodField(read_only=True)
@@ -50,8 +45,23 @@ class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
         fields = '__all__'
-        
+
     def get_user(self, obj):
         user = obj.user
         serializer = UserSerializer(user, many=False)
+        return serializer.data
+
+class GameSerializer(serializers.ModelSerializer):
+    user = serializers.SerializerMethodField(read_only=True)
+    sticker = serializers.SerializerMethodField(read_only=True)
+    class Meta:
+        model = Game
+        fields = '__all__'
+    def get_user(self, obj):
+        user = obj.user
+        serializer = UserSerializer(user, many=False)
+        return serializer.data
+    def get_sticker(self, obj):
+        sticker = obj.sticker
+        serializer = StickerSerializer(sticker, many=False)
         return serializer.data
