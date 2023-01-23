@@ -10,20 +10,17 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const userLogin = useSelector((state) => state.userLogin);
   const { error, loading, userInfo } = userLogin;
 
-  function redirect() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
     if (userInfo) {
       navigate("/");
     }
-  }
-
-  useEffect(() => {
-    redirect();
-  }, [redirect]);
+  }, [navigate, userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();

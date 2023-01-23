@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import MoraCoin from "/src/image/mora.png";
 import MenuIcon from "/src/svg/menu.svg";
 import Logo from "/src/svg/logo.svg";
@@ -107,8 +107,14 @@ export default function Header() {
 
   const logoutHandler = () => {
     dispatch(logout());
-    navigate("/login");
   };
+
+  useEffect(() => {
+    if (!userInfo) {
+      navigate("/login");
+    }
+  }, [navigate, userInfo]);
+
   const { width } = useWindowSize();
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-indigo-400 w-full">
@@ -120,18 +126,18 @@ export default function Header() {
             title="Home"
           >
             <img className="h-12 mr-3" src={Logo} />
-            Gachapon
+            <span className="hidden md:inline lg:inline">Gachapon</span>
           </Link>
         </div>
         <div className="lg:flex flex-grow items-center min-w-fit">
           <ul className="flex flex-row list-none lg:ml-auto">
-            <li className="nav-item">
+            <li className="nav-item  px-3">
               <a
                 className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white bg-indigo-600 bg-opacity-50 rounded-full min-w-fit"
                 href="#"
               >
                 <img className="h-6" src={MoraCoin} />
-                <span className="mx-2 text-lg leading-lg text-white hover:opacity-75">
+                <span className="ml-2 text-lg leading-lg text-white hover:opacity-75">
                   50
                 </span>
               </a>
@@ -145,15 +151,15 @@ export default function Header() {
               </Link>
             )}
             {width >= 1024 ? <DesktopNav /> : <MobileNav />}
+            {userInfo && (
+              <Link
+                onClick={logoutHandler}
+                className="whitespace-nowrap italic lg:text-lg px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:underline"
+              >
+                Log Out
+              </Link>
+            )}
           </ul>
-          {userInfo && (
-            <Link
-              onClick={logoutHandler}
-              className="whitespace-nowrap italic lg:text-lg px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:underline"
-            >
-              Log Out
-            </Link>
-          )}
         </div>
       </div>
     </nav>

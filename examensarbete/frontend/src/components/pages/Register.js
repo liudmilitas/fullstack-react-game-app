@@ -1,37 +1,37 @@
-import React, { useState } from "react";
-import GoogleIcon from "/src/svg/google-icon.svg";
-import GitHubDark from "/src/svg/github-dark.svg";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../elems/Loader";
+import { register } from "../../actions/userActions";
 
 export default function Register() {
   // States for signup
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState("");
 
-  function handleInputChange(e) {
-    const { id, value } = e.target;
-    if (id === "username") {
-      setUsername(value);
-    }
-    if (id === "email") {
-      setEmail(value);
-    }
-    if (id === "password") {
-      setPassword(value);
-    }
-    if (id === "confirmPassword") {
-      setConfirmPassword(value);
-    }
-  }
+  const dispatch = useDispatch();
 
-  function onSignupClick() {
-    const userData = {
-      username: username,
-      email: email,
-      password: password,
-    };
-    console.log("Sign up " + userData.username + " " + userData.password);
+  const userRegister = useSelector((state) => state.userRegister);
+  const { error, loading, userInfo } = userRegister;
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/");
+    }
+  }, [navigate, userInfo]);
+
+  function submitHandler(e) {
+    e.preventDefault();
+    if (password != confirmPassword) {
+      setMessage("Passwords do not match");
+    } else {
+      dispatch(register(name, email, password));
+    }
   }
 
   return (
@@ -40,20 +40,20 @@ export default function Register() {
         <h1 className="text-3xl font-semibold text-center text-indigo-700 uppercase">
           SIGN UP
         </h1>
-        <form className="mt-6">
+        {message && <p>{message}</p>}
+        {error && <p>{error}</p>}
+        {loading && <Loader />}
+        <form className="mt-6" onSubmit={submitHandler}>
           <div className="mb-2">
-            <label
-              htmlFor="username"
-              className="block font-semibold text-gray-800"
-            >
-              Username
+            <label htmlFor="name" className="block font-semibold text-gray-800">
+              Name
             </label>
             <input
-              id="username"
-              type="text"
               required
-              onChange={(e) => handleInputChange(e)}
-              value={username}
+              type="name"
+              placeholder="Enter name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="block w-full px-4 py-2 mt-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
@@ -65,11 +65,11 @@ export default function Register() {
               Email
             </label>
             <input
-              id="email"
-              type="email"
               required
-              onChange={(e) => handleInputChange(e)}
+              type="email"
+              placeholder="Enter Email"
               value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="block w-full px-4 py-2 mt-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
@@ -81,11 +81,11 @@ export default function Register() {
               Password
             </label>
             <input
-              id="password"
-              onChange={(e) => handleInputChange(e)}
               required
-              value={password}
               type="password"
+              placeholder="Enter Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="block w-full px-4 py-2 mt-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
@@ -97,47 +97,31 @@ export default function Register() {
               Confirm Password
             </label>
             <input
-              id="confirmPassword"
-              type="password"
               required
+              type="password"
+              placeholder="Confirm Password"
               value={confirmPassword}
-              onChange={(e) => handleInputChange(e)}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               className="block w-full px-4 py-2 mt-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
           <div className="mt-6">
             <button
-              onClick={onSignupClick}
+              type="submit"
               className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-indigo-700 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
             >
               Create account
             </button>
           </div>
         </form>
-        <div className="relative flex items-center justify-center w-full mt-6 border border-t">
-          <div className="absolute px-5 bg-white">or</div>
-        </div>
-        <div className="flex mt-4 gap-x-2">
-          <button
-            type="button"
-            className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-indigo-600 hover:bg-indigo-200 hover:border-gray-900"
-          >
-            <img className="w-5 h-5 fill-current" src={GoogleIcon} />
-          </button>
-          <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-indigo-600 hover:bg-indigo-200 hover:border-gray-900">
-            <img className="w-5 h-5 fill-current" src={GitHubDark} />
-          </button>
-        </div>
-
         <p className="mt-8 text-lg font-light text-center text-gray-700">
-          {" "}
           Already have an account?{" "}
-          <a
-            href="/login"
+          <Link
+            to={"/login"}
             className="font-medium text-indigo-600 hover:underline"
           >
             Login
-          </a>
+          </Link>
         </p>
       </div>
     </div>
