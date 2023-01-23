@@ -10,12 +10,15 @@ export default function PrizeModal({ sticker, togglePrizeModal }) {
   return (
     <>
       {sticker ? (
-        <div className="prize-reward-container w-full relative h-full top-0 left-0 z-10 bg-black bg-opacity-25">
+        <div className="prize-reward-container w-full relative h-full top-0 left-0 z-40 bg-black bg-opacity-25">
           <Confetti className="z-30" width={width} height={height} />
           <button
             type="button"
-            onClick={togglePrizeModal}
-            className="z-50 bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            onClick={() => {
+              togglePrizeModal;
+              console.log("click!");
+            }}
+            className="absolute z-50 bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
           >
             <span className="text-xl text-black">CLOSE</span>{" "}
             <img src={CloseButton} className="h-6 w-6" />
