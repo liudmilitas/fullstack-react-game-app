@@ -26,7 +26,7 @@ def createTransaction(request):
 @permission_classes([IsAuthenticated])
 def getMyTransactions(request):
     user = request.user
-    transactions = user.transaction_set.all()
+    transactions = Transaction.objects.filter(user=request.user)
     serializer = TransactionSerializer(transactions, many=True)
     return Response(serializer.data)
 

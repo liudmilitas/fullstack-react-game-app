@@ -11,7 +11,7 @@ import {
   GAME_LIST_SUCCESS,
 } from "../constants/gameConstants";
 
-export const createGame = (game) => async (dispatch, getState) => {
+export const createGame = (sticker) => async (dispatch, getState) => {
   try {
     dispatch({
       type: GAME_CREATE_REQUEST,
@@ -28,7 +28,11 @@ export const createGame = (game) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`/api/games/add/`, game, config);
+    const { data } = await axios.post(
+      `/api/games/post/`,
+      { sticker: sticker },
+      config
+    );
 
     dispatch({
       type: GAME_CREATE_SUCCESS,
