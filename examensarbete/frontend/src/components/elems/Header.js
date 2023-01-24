@@ -135,12 +135,9 @@ export default function Header() {
               </a>
             </li>
             {userInfo && width >= 1024 && (
-              <Link
-                to="/profile"
-                className="whitespace-nowrap italic lg:text-lg px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:underline"
-              >
+              <span className="whitespace-nowrap italic lg:text-lg px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white">
                 Hey, {userInfo.name}!
-              </Link>
+              </span>
             )}
             {width >= 1024 ? <DesktopNav /> : <MobileNav />}
             {userInfo && (

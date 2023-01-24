@@ -15,7 +15,7 @@ export default function Shop() {
 
   function ProductList() {
     return (
-      <section>
+      <section className="py-4">
         <ul className="flex flex-col lg:flex-row md:flex-row w-full justify-center items-center content-center gap-8">
           {products.map((product) => (
             <li
