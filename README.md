@@ -4,30 +4,33 @@
 <br/>WIE21S - Examensarbete</p>
 
 ## About
-Gashapon Arcade Machine Simulator developed with React, Django and TailwindCSS.
-
-A simple browser game, where users can buy coins for a gachapon vending machine in order to obtain a random sticker. Users can register, login, purchase in-game coins and see the stickers they have obtained so far.
- 
-## Goal and requirements
-The project goal is to create an ecommerce fullstack web application in order to broaden and deepen understanding of development principles and technologies covered in the previous courses. As such, the final result is supposed to combine both client-side and server-side software.
+Gashapon Arcade Machine Simulator developed with React, Redux, Django and TailwindCSS. A simple browser game, where users can buy coins for a gachapon vending machine in order to obtain a random sticker. 
 
 ## Key Features
- - React app built from scratch - bundled with Webpack, no *create-react-app* used
+ - Bundled with Webpack, no *create-react-app* used
+ - React hooks & functional components
+ - State management with Redux & RTK
+ - Simple JWT User Authentication with Django REST Framework
 
 ## Quick Setup
 
 ### Requirements
  - Node.js: ^12.0.0
  - NPM or any other Node.js package manager
- - Python 3.0 or higher
- - Django 4.0 or higher
+ - Python ^3.0 
+ - Django 4.1.4
+ - djangorestframework ^3.14.0
+ - djangorestframework_simplejwt ^4.8.0
+
 
 ```bash
-# Install dependencies
-npm install
-# Serve API on localhost:8000 (from root)
+# Install dependencies (from .\examensarbete)
+pip install -r requirements.txt
+# Serve API on localhost:8000 (from .\examensarbete)
 python examensarbete/manage.py runserver
-# Run webpack (from '.\examensarbete\frontend' folder)
+# Install dependencies (frontend, from .\examensarbete\frontend)
+npm install
+# Run webpack & build for development
 npm run dev
 # Build for production
 npm run build
