@@ -122,7 +122,7 @@ export default function Machine() {
                 <div
                   className={`${
                     handleClick && "animate-wiggle"
-                  } absolute w-8 h-8 left-[80%] top-[96%]`}
+                  } absolute w-8 h-8 left-[77%] top-[94%]`}
                 >
                   <figure className="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-purple-300 border-purple-600 rotate-[223deg]"></figure>
                 </div>
@@ -143,16 +143,9 @@ export default function Machine() {
                 <div
                   className={`${
                     handleClick && "animate-wiggle"
-                  } absolute w-8 h-8 left-[8%] top-[96%]`}
+                  } absolute w-8 h-8 left-[8%] top-[94%]`}
                 >
                   <figure className="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-red-300 border-red-600 rotate-[178deg]"></figure>
-                </div>
-                <div
-                  className={`${
-                    handleClick && "animate-wiggle"
-                  } absolute w-8 h-8 left-[8%] top-[96%]`}
-                >
-                  <figure className="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-purple-300 border-purple-600 rotate-[52deg]"></figure>
                 </div>
               </div>
               <img

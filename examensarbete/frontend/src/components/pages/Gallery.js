@@ -5,15 +5,18 @@ import CharacterInfo from "../gacha/CharacterInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { listStickers } from "../../actions/stickerActions";
 import Loader from "../elems/Loader";
+import { listMyGames } from "../../actions/gameActions";
 
 export default function Gallery() {
   const dispatch = useDispatch();
-  const stickerList = useSelector((state) => state.stickerList);
-  const { error, loading, stickers } = stickerList;
+  const gameListMy = useSelector((state) => state.gameListMy);
+  const { error, loading, games } = gameListMy;
 
   useEffect(() => {
-    dispatch(listStickers());
+    dispatch(listMyGames());
   }, [dispatch]);
+
+  const stickers = games?.map((game) => game.sticker);
 
   const GradientList = {
     Pyro: "bg-gradient-to-t from-orange-600 to-red-400",
