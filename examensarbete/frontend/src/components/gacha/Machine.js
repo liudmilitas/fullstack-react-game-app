@@ -25,8 +25,10 @@ export default function Machine() {
   const [sticker, setSticker] = useState();
 
   function getRandomSticker() {
-    let randomSticker = stickers[Math.floor(Math.random() * stickers.length)];
-    setSticker(randomSticker);
+    if (!sticker) {
+      let randomSticker = stickers[Math.floor(Math.random() * stickers.length)];
+      setSticker(randomSticker);
+    }
   }
 
   function togglePrizeModal() {
@@ -112,13 +114,13 @@ export default function Machine() {
 
               <button
                 className={`${
-                  handleClick && "rotate-45"
-                } transition duration-1000 ease-out handle absolute z-3 left-[13%] top-[70%]`}
+                  handleClick && "rotate-180"
+                } transition duration-[2s] ease-out handle absolute z-3 left-[13%] top-[70%]`}
                 onClick={() => {
                   setHandleClick(true);
-                  getRandomSticker();
                 }}
-                onAnimationEnd={() => {
+                onTransitionEnd={() => {
+                  getRandomSticker();
                   setHandleClick(false);
                 }}
               >
