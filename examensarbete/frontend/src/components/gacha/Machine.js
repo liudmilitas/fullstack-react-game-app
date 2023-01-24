@@ -37,74 +37,127 @@ export default function Machine() {
 
   const [handleClick, setHandleClick] = useState(false);
 
-  function GenerateBalls() {
-    const ballColors = [
-      "indigo",
-      "pink",
-      "sky",
-      "cyan",
-      "purple",
-      "orange",
-      "amber",
-      "red",
-      "lime",
-      "green",
-      "emerald",
-      "rose",
-    ];
-
-    const ballCoordinates = [
-      { left: 0.5, top: 0.6 },
-      { left: 0, top: 0.68 },
-      { left: 0.22, top: 0.65 },
-      { left: 0.7, top: 0.63 },
-      { left: 0.75, top: 0.79 },
-      { left: 0.96, top: 0.66 },
-      { left: 0.5, top: 0.8 },
-      { left: 0.9, top: 0.81 },
-      { left: 0, top: 0.82 },
-      { left: 1, top: 0.9 },
-      { left: 0.25, top: 0.85 },
-      { left: 0.9, top: 1 },
-      { left: 0.4, top: 1 },
-      { left: 0.65, top: 1 },
-      { left: 0.09, top: 1 },
-    ];
-
-    return (
-      <>
-        {ballCoordinates.map((ball) => {
-          let rotate = Math.floor(Math.random() * 360);
-          let color = ballColors[Math.floor(Math.random() * ballColors.length)];
-          let x = Math.floor(ball.left * 96);
-          let y = Math.floor(ball.top * 96);
-          return (
-            <figure
-              key={ballCoordinates.indexOf(ball)}
-              className={
-                "gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center " +
-                `bg-${color}-300 border-${color}-600 left-[${x}%] top-[${y}%] rotate-[${rotate}]`
-              }
-            ></figure>
-          );
-        })}
-      </>
-    );
-  }
-
   return (
     <div className="container w-full h-full overflow-hidden flex items-center justify-center content-center mx-0">
       {loading ? (
         <Loader />
       ) : (
         <div>
-          {" "}
           <div className="game-block w-full h-full overflow-hidden flex justify-center items-center content-center">
             <div className="machine-container relative whitespace-nowrap self-center">
               <div className="backboard z-0 w-[15vh] h-[13vh] left-[28%] top-[65%] bg-pink-400 absolute"></div>
-              <div className="balls absolute w-[96%] h-[34.5%] left-[2%] top-[22%]">
-                <div className="w-32 h-32 flex">
-                  <GenerateBalls />
+              <div className="balls absolute w-[96%] h-[34.5%] left-[2%] top-[16%] ">
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 top-[57%] left-[48%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-sky-300 border-sky-600 rotate-[282deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[0%] top-[65%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-indigo-300 border-indigo-600 rotate-[83deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[21%] top-[62%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-red-300 border-red-600 rotate-[169deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[67%] top-[60%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-indigo-300 border-indigo-600 rotate-[87deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[78%] top-[70%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-sky-300 border-sky-600 rotate-[156deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[62%] top-[63%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-lime-300 border-lime-600 rotate-[330deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[48%] top-[76%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-red-300 border-red-600 rotate-[223deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[11%] top-[77%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-pink-300 border-pink-600 rotate-[8deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[0%] top-[78%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-red-300 border-red-600 rotate-[33deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[76%] top-[86%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-pink-300 border-pink-600 rotate-[121deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[24%] top-[81%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-purple-300 border-purple-600 rotate-[304deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[80%] top-[96%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-purple-300 border-purple-600 rotate-[223deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[38%] top-[96%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-emerald-300 border-emerald-600 rotate-[239deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[62%] top-[96%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-purple-300 border-purple-600 rotate-[346deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[8%] top-[96%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-red-300 border-red-600 rotate-[178deg]"></figure>
+                </div>
+                <div
+                  className={`${
+                    handleClick && "animate-wiggle"
+                  } absolute w-8 h-8 left-[8%] top-[96%]`}
+                >
+                  <figure class="gacha-ball w-8 h-8 border-4 rounded-full absolute overflow-hidden origin-center bg-purple-300 border-purple-600 rotate-[52deg]"></figure>
                 </div>
               </div>
               <img
@@ -115,12 +168,12 @@ export default function Machine() {
               <button
                 className={`${
                   handleClick && "rotate-180"
-                } transition duration-[2s] ease-out handle absolute z-3 left-[13%] top-[70%]`}
+                } transition duration-[3s] ease-out handle absolute z-3 left-[13%] top-[70%]`}
                 onClick={() => {
                   setHandleClick(true);
                 }}
                 onTransitionEnd={() => {
-                  getRandomSticker();
+                  getRandomSticker(false);
                   setHandleClick(false);
                 }}
               >
@@ -133,7 +186,7 @@ export default function Machine() {
               <div className="prize-ball-container w-full h-full overflow-hidden absolute top-0 left-0"></div>
               <PrizeModal
                 sticker={sticker}
-                togglePrizeModal={togglePrizeModal}
+                togglePrizeModal={() => togglePrizeModal()}
               />
             </div>
           </div>
