@@ -7,6 +7,7 @@ import { useWindowSize } from "react-use";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../actions/userActions";
+import { listMyTransactions } from "../../actions/transactionActions";
 
 let navLinks = [];
 navLinks = [
@@ -105,9 +106,17 @@ export default function Header() {
     if (!userInfo) {
       navigate("/login");
     }
-  }, [navigate, userInfo]);
+    dispatch(listMyTransactions());
+  }, [navigate, userInfo, dispatch]);
 
   const { width } = useWindowSize();
+
+  const transactionListMy = useSelector((state) => state.transactionListMy);
+  const { error, loading, transactions } = transactionListMy;
+  const balance = transactions
+    ?.map((t) => t.coins_amount)
+    .reduce((sum, a) => sum + a, 0);
+
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-indigo-400 w-full">
       <div className="container px-4 mx-auto flex items-center justify-between">
@@ -130,7 +139,7 @@ export default function Header() {
               >
                 <img className="h-6" src={MoraCoin} />
                 <span className="ml-2 text-lg leading-lg text-white hover:opacity-75">
-                  50
+                  {balance ? balance : 50}
                 </span>
               </a>
             </li>
