@@ -33,7 +33,7 @@ class Sticker(models.Model):
         BEIDOU = 'Beidou'
         BENNET = 'Bennet'
         CANDACE = 'Candace'
-        CHILDE = 'Childe'
+        CHILDE = 'tartaglia'
         CHONGYUN = 'Chongyun'
         COLLEI = 'Collei'
         CYNO = 'Cyno'

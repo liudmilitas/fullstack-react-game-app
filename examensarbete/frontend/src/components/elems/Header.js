@@ -79,7 +79,7 @@ function DesktopNav() {
   return navLinks.map((link) => (
     <li className="nav-item" key={link.name}>
       <Link
-        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:underline"
+        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white underline hover:opacity-75"
         to={link.href}
         title={link.name}
       >
@@ -127,21 +127,23 @@ export default function Header() {
             title="Home"
           >
             <img className="h-12 mr-3" src={Logo} />
-            <span className="hidden md:inline lg:inline">Gachapon</span>
+            <span className="hidden md:inline lg:inline underline hover:opacity-75">
+              Gachapon
+            </span>
           </Link>
         </div>
         <div className="lg:flex flex-grow items-center min-w-fit">
           <ul className="flex flex-row list-none lg:ml-auto">
             <li className="nav-item  px-3">
-              <a
+              <Link
                 className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white bg-indigo-600 bg-opacity-50 rounded-full min-w-fit"
-                href="#"
+                to={"/transactions"}
               >
                 <img className="h-6" src={MoraCoin} />
                 <span className="ml-2 text-lg leading-lg text-white hover:opacity-75">
                   {balance ? balance : 50}
                 </span>
-              </a>
+              </Link>
             </li>
             {userInfo && width >= 1024 && (
               <span className="whitespace-nowrap italic lg:text-lg px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white">
@@ -152,7 +154,7 @@ export default function Header() {
             {userInfo && (
               <Link
                 onClick={logoutHandler}
-                className="whitespace-nowrap italic lg:text-lg px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:underline"
+                className="whitespace-nowrap italic lg:text-lg px-3 py-2 flex items-center uppercase font-bold leading-snug text-white underline hover:opacity-75"
               >
                 Log Out
               </Link>
