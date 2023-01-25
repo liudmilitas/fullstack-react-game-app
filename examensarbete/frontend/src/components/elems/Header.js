@@ -154,7 +154,7 @@ export default function Header() {
             {userInfo && (
               <Link
                 onClick={logoutHandler}
-                className="whitespace-nowrap italic lg:text-lg px-3 py-2 flex items-center uppercase font-bold leading-snug text-white underline hover:opacity-75"
+                className="whitespace-nowrap italic text-lg px-3 py-2 flex items-center uppercase font-bold leading-snug text-white underline hover:opacity-75"
               >
                 Log Out
               </Link>
