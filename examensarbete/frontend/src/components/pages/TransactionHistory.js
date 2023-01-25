@@ -16,34 +16,44 @@ export default function TransactionHistory() {
   function TransactionTable() {
     return (
       <section className="h-fit py-4 w-full flex justify-center items-center">
-        <table className="shadow-lg bg-white border-collapse h-fit py-4">
-          <thead>
-            <tr>
-              <th className="bg-indigo-100 border text-left px-8 py-4">#</th>
-              <th className="bg-indigo-100 border text-left px-8 py-4">
-                Coins
-              </th>
-              <th className="bg-indigo-100 border text-left px-8 py-4">
-                Amount
-              </th>
-              <th className="bg-indigo-100 border text-left px-8 py-4">Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {transactions?.map((transaction) => (
-              <tr key={transactions.indexOf(transaction)}>
-                <td className="border px-8 py-4">
-                  #{transactions.indexOf(transaction) + 1}
-                </td>
-                <td className="border px-8 py-4">{transaction.coins_amount}</td>
-                <td className="border px-8 py-4">{transaction.amount}</td>
-                <td className="border px-8 py-4">
-                  {transaction.transaction_date}
-                </td>
+        {transactions?.length > 0 ? (
+          <table className="shadow-lg bg-white border-collapse h-fit py-4">
+            <thead>
+              <tr>
+                <th className="bg-indigo-100 border text-left px-8 py-4">#</th>
+                <th className="bg-indigo-100 border text-left px-8 py-4">
+                  Coins
+                </th>
+                <th className="bg-indigo-100 border text-left px-8 py-4">
+                  Amount
+                </th>
+                <th className="bg-indigo-100 border text-left px-8 py-4">
+                  Date
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {transactions?.map((transaction) => (
+                <tr key={transactions.indexOf(transaction)}>
+                  <td className="border px-8 py-4">
+                    #{transactions.indexOf(transaction) + 1}
+                  </td>
+                  <td className="border px-8 py-4">
+                    {transaction.coins_amount}
+                  </td>
+                  <td className="border px-8 py-4">{transaction.amount}</td>
+                  <td className="border px-8 py-4">
+                    {transaction.transaction_date}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <h2 className="text-2xl">
+            Your transaction history will appear here
+          </h2>
+        )}
       </section>
     );
   }

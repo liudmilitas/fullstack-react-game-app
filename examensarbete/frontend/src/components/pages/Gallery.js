@@ -41,7 +41,7 @@ export default function Gallery() {
           <Loader />
         ) : error ? (
           <h3>{error}</h3>
-        ) : (
+        ) : stickers?.length > 0 ? (
           <ul className="p-2 w-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-self-center justify-center items-center content-center gap-4">
             {stickers.map((sticker) => (
               <li
@@ -69,6 +69,10 @@ export default function Gallery() {
               </li>
             ))}
           </ul>
+        ) : (
+          <h2 className="text-2xl">
+            The stickers you've won so far will appear here
+          </h2>
         )}
       </section>
     );

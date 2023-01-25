@@ -141,7 +141,7 @@ export default function Header() {
               >
                 <img className="h-6" src={MoraCoin} />
                 <span className="ml-2 text-lg leading-lg text-white hover:opacity-75">
-                  {balance ? balance : 50}
+                  {balance ? balance : 0}
                 </span>
               </Link>
             </li>
