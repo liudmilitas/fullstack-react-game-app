@@ -6,12 +6,12 @@ import products from "../elems/products";
 
 export default function Shop() {
   const [coins, setCoins] = useState(false);
+  const [price, setPrice] = useState(false);
 
   function toggle() {
     setCoins(false);
+    setPrice(false);
   }
-
-  function paymentHandler() {}
 
   function ProductList() {
     return (
@@ -23,7 +23,10 @@ export default function Shop() {
               key={product.name}
             >
               <button
-                onClick={(e) => setCoins(product.coins)}
+                onClick={(e) => {
+                  setCoins(product.coins);
+                  setPrice(product.price);
+                }}
                 className="flex flex-col items-center content-center justify-end w-full h-full"
               >
                 <img className="h-24" src={product.image} />
@@ -41,11 +44,7 @@ export default function Shop() {
     <>
       <Header />
       <ProductList />
-      <PaymentModal
-        coins={coins}
-        toggle={toggle}
-        transactionHandler={paymentHandler}
-      />
+      <PaymentModal coins={coins} price={price} toggle={toggle} />
       <Footer />
     </>
   );

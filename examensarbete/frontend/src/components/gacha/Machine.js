@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { listStickers } from "../../actions/stickerActions";
 import Loader from "../elems/Loader";
 import { createGame } from "../../actions/gameActions";
+import { createTransaction } from "../../actions/transactionActions";
 
 export default function Machine() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ export default function Machine() {
     if (!sticker) {
       let randomSticker = stickers[Math.floor(Math.random() * stickers.length)];
       dispatch(createGame(randomSticker._id));
+      dispatch(createTransaction(0, -1));
       setSticker(randomSticker);
     }
   }

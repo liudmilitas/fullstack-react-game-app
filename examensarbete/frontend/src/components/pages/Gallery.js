@@ -37,12 +37,6 @@ export default function Gallery() {
   function StickerListComponent() {
     return (
       <section className="h-fit px-5 py-2 mx-auto w-full flex flex-col justify-items-start items-center">
-        <h2 className="text-xl self-start p-4">
-          <a href="/home" className="hover:underline hover:text-indigo-900">
-            HOME
-          </a>
-          / GALLERY
-        </h2>
         {loading ? (
           <Loader />
         ) : error ? (

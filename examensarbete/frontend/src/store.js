@@ -5,6 +5,11 @@ import {
   gameListReducer,
 } from "./reducers/gameReducers";
 import { stickerListReducer } from "./reducers/stickerReducers";
+import {
+  transactionCreateReducer,
+  transactionListMyReducer,
+  transactionListReducer,
+} from "./reducers/transactionReducers";
 import { userLoginReducer, userRegisterReducer } from "./reducers/userReducers";
 
 const reducer = combineReducers({
@@ -14,6 +19,9 @@ const reducer = combineReducers({
   gameCreate: gameCreateReducer,
   gameList: gameListReducer,
   gameListMy: gameListMyReducer,
+  transactionCreate: transactionCreateReducer,
+  transactionList: transactionListReducer,
+  transactionListMy: transactionListMyReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

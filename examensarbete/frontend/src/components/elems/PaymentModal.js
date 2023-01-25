@@ -1,7 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { createTransaction } from "../../actions/transactionActions";
 import CloseButton from "/src/svg/close-button.svg";
 
-export default function PaymentModal({ coins, toggle, paymentHandler }) {
+export default function PaymentModal({ coins, price, toggle }) {
+  const dispatch = useDispatch();
   return (
     <>
       {coins && (
@@ -90,7 +93,10 @@ export default function PaymentModal({ coins, toggle, paymentHandler }) {
 
             <div>
               <button
-                onClick={paymentHandler}
+                onClick={(e) => {
+                  dispatch(createTransaction(price, coins));
+                  toggle();
+                }}
                 className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"
               >
                 <span className="mdi mdi-lock-outline mr-1">PAY NOW</span>

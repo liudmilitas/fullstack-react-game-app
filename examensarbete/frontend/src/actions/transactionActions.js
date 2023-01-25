@@ -12,7 +12,7 @@ import {
 } from "../constants/transactionConstants";
 
 export const createTransaction =
-  (transaction) => async (dispatch, getState) => {
+  (amount, coins_amount) => async (dispatch, getState) => {
     try {
       dispatch({
         type: TRANSACTION_CREATE_REQUEST,
@@ -30,8 +30,8 @@ export const createTransaction =
       };
 
       const { data } = await axios.post(
-        `/api/transactions/add/`,
-        transaction,
+        `/api/transactions/post/`,
+        { amount: amount, coins_amount: coins_amount },
         config
       );
 

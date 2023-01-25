@@ -24,12 +24,6 @@ class Sticker(models.Model):
 
    # Character field
    class Characters(models.TextChoices):
-      # >>> (sticker).character
-      # 'ALBE'
-      # VS
-      # >>> (sticker).get_character_display()
-      # 'Albedo'
-
         ALBEDO = 'Albedo'
         ALOY = 'Aloy'
         AMBER = 'Amber'
