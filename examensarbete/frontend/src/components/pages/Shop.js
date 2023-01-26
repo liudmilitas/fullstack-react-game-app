@@ -38,7 +38,7 @@ export default function Shop() {
               >
                 <img className="h-24" src={product.image} />
                 <span className="pb-3 text-lg">{product.name}</span>
-                <span className="pb-3 text-xl font-bold">
+                <span className="pb-3 text-lg font-bold">
                   {product.price} SEK
                 </span>
               </button>

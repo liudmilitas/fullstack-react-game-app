@@ -87,7 +87,7 @@ function DesktopNav({ logoutHandler }) {
       {navLinks.map((link) => (
         <li className="nav-item" key={link.name}>
           <Link
-            className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white underline hover:opacity-75"
+            className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:underline hover:opacity-75"
             to={link.href}
             title={link.name}
           >
@@ -99,7 +99,7 @@ function DesktopNav({ logoutHandler }) {
       ))}
       <Link
         onClick={logoutHandler}
-        className="whitespace-nowrap italic text-lg px-3 py-2 flex items-center uppercase font-bold leading-snug text-white underline hover:opacity-75"
+        className="whitespace-nowrap italic text-lg px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:underline hover:opacity-75"
       >
         Log Out
       </Link>
@@ -151,7 +151,7 @@ export default function Header() {
             title="Home"
           >
             <img className="h-12 mr-3" src={Logo} />
-            <span className="hidden md:inline lg:inline underline hover:opacity-75">
+            <span className="hidden md:inline lg:inline hover:underline">
               Gachapon
             </span>
           </Link>
