@@ -3,6 +3,7 @@ import Header from "../elems/Header";
 import Footer from "../elems/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { listMyTransactions } from "../../actions/transactionActions";
+import dayjs from "dayjs";
 
 export default function TransactionHistory() {
   const dispatch = useDispatch();
@@ -20,14 +21,16 @@ export default function TransactionHistory() {
           <table className="shadow-lg bg-white border-collapse h-fit py-4">
             <thead>
               <tr>
-                <th className="bg-indigo-100 border text-left px-8 py-4">#</th>
-                <th className="bg-indigo-100 border text-left px-8 py-4">
+                <th className="bg-indigo-100 border text-left px-3 lg:px-4 py-4">
+                  #
+                </th>
+                <th className="bg-indigo-100 border text-left lg:px-8 py-4">
                   Coins
                 </th>
-                <th className="bg-indigo-100 border text-left px-8 py-4">
+                <th className="bg-indigo-100 border text-left px-4 lg:px-8 py-4">
                   Amount
                 </th>
-                <th className="bg-indigo-100 border text-left px-8 py-4">
+                <th className="bg-indigo-100 border text-left px-4 lg:px-8 py-4">
                   Date
                 </th>
               </tr>
@@ -35,15 +38,19 @@ export default function TransactionHistory() {
             <tbody>
               {transactions?.map((transaction) => (
                 <tr key={transactions.indexOf(transaction)}>
-                  <td className="border px-8 py-4">
+                  <td className="border px-3 lg:px-4 py-4">
                     #{transactions.indexOf(transaction) + 1}
                   </td>
-                  <td className="border px-8 py-4">
+                  <td className="border px-4 lg:px-8 py-4">
                     {transaction.coins_amount}
                   </td>
-                  <td className="border px-8 py-4">{transaction.amount}</td>
-                  <td className="border px-8 py-4">
-                    {transaction.transaction_date}
+                  <td className="border px-4 lg:px-8 py-4">
+                    {transaction.amount}
+                  </td>
+                  <td className="border px-4 lg:px-8 py-4">
+                    {dayjs(transaction.transaction_date).format(
+                      "HH:mm DD/MM/YYYY"
+                    )}
                   </td>
                 </tr>
               ))}
