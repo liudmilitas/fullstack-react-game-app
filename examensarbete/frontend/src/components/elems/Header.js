@@ -16,7 +16,7 @@ navLinks = [
   { name: "History", href: "/transactions" },
 ];
 
-function MobileNav() {
+function MobileNav({ logoutHandler }) {
   const [dropdownPopoverShow, setDropdownPopoverShow] = useState(false);
   const btnDropdownRef = useRef();
   const popoverDropdownRef = useRef();
@@ -67,6 +67,12 @@ function MobileNav() {
                   {link.name}
                 </Link>
               ))}
+              <Link
+                onClick={logoutHandler}
+                className="text-white bg-indigo-500 hover:bg-indigo-700 text-lg py-2 px-4 font-normal block w-full whitespace-nowrap hover:underline italic"
+              >
+                Log Out
+              </Link>
             </div>
           </div>
         </div>
@@ -75,20 +81,30 @@ function MobileNav() {
   );
 }
 
-function DesktopNav() {
-  return navLinks.map((link) => (
-    <li className="nav-item" key={link.name}>
+function DesktopNav({ logoutHandler }) {
+  return (
+    <>
+      {navLinks.map((link) => (
+        <li className="nav-item" key={link.name}>
+          <Link
+            className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white underline hover:opacity-75"
+            to={link.href}
+            title={link.name}
+          >
+            <span className="lg:text-lg leading-lg text-white ml-2 whitespace-nowrap italic">
+              {link.name}
+            </span>
+          </Link>
+        </li>
+      ))}
       <Link
-        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white underline hover:opacity-75"
-        to={link.href}
-        title={link.name}
+        onClick={logoutHandler}
+        className="whitespace-nowrap italic text-lg px-3 py-2 flex items-center uppercase font-bold leading-snug text-white underline hover:opacity-75"
       >
-        <span className="lg:text-lg leading-lg text-white ml-2 whitespace-nowrap italic">
-          {link.name}
-        </span>
+        Log Out
       </Link>
-    </li>
-  ));
+    </>
+  );
 }
 
 export default function Header() {
@@ -116,6 +132,14 @@ export default function Header() {
   const balance = transactions
     ?.map((t) => t.coins_amount)
     .reduce((sum, a) => sum + a, 0);
+
+  const [warning, setWarning] = useState(false);
+
+  useEffect(() => {
+    if (balance <= 0) {
+      setWarning(true);
+    }
+  });
 
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-indigo-400 w-full">
@@ -150,14 +174,10 @@ export default function Header() {
                 Hey, {userInfo.name}!
               </span>
             )}
-            {width >= 1024 ? <DesktopNav /> : <MobileNav />}
-            {userInfo && (
-              <Link
-                onClick={logoutHandler}
-                className="whitespace-nowrap italic text-lg px-3 py-2 flex items-center uppercase font-bold leading-snug text-white underline hover:opacity-75"
-              >
-                Log Out
-              </Link>
+            {width >= 1024 ? (
+              <DesktopNav logoutHandler={logoutHandler} />
+            ) : (
+              <MobileNav logoutHandler={logoutHandler} />
             )}
           </ul>
         </div>
