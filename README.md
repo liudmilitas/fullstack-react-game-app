@@ -9,9 +9,9 @@ Gashapon Arcade Machine Simulator developed with React, Redux, Django and Tailwi
 ## Key Features
  - Bundled with Webpack, no *create-react-app* used
  - React hooks & functional components
- - State management with Redux & RTK
+ - State management with Redux & Redux Toolkit
  - Simple JWT User Authentication with Django REST Framework
- - TailwindCSS-based design
+ - Responsive TailwindCSS-based design
 
 ## Quick Setup
 
