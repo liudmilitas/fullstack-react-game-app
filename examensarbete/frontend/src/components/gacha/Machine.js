@@ -6,7 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { listStickers } from "../../actions/stickerActions";
 import Loader from "../elems/Loader";
 import { createGame } from "../../actions/gameActions";
-import { createTransaction } from "../../actions/transactionActions";
+import {
+  createTransaction,
+  listMyTransactions,
+} from "../../actions/transactionActions";
 
 export default function Machine() {
   const dispatch = useDispatch();
@@ -15,6 +18,7 @@ export default function Machine() {
 
   useEffect(() => {
     dispatch(listStickers());
+    dispatch(listMyTransactions());
   }, [dispatch]);
 
   const [sticker, setSticker] = useState();
@@ -165,6 +169,7 @@ export default function Machine() {
                 onTransitionEnd={() => {
                   getRandomSticker();
                   setHandleClick(false);
+                  dispatch(listMyTransactions());
                 }}
               >
                 <img className="h-[2.5vh]" src={Handle} />

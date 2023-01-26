@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { listMyTransactions } from "../../actions/transactionActions";
 import Footer from "../elems/Footer";
 import Header from "../elems/Header";
 import PaymentModal from "../elems/PaymentModal";
 import products from "../elems/products";
 
 export default function Shop() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(listMyTransactions());
+  }, [dispatch]);
+
   const [coins, setCoins] = useState(false);
   const [price, setPrice] = useState(false);
 
