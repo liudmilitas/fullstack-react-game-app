@@ -4,7 +4,7 @@
 <br/>WIE21S - Examensarbete</p>
 
 ## About
-Gashapon Arcade Machine Simulator developed with React, Redux, Django and TailwindCSS. A simple browser game, where users can buy coins for a gachapon vending machine in order to obtain a random sticker. Users can register, login, purchase in-game coins and see the stickers they have obtained so far.
+Gashapon Arcade Machine Simulator developed with React, Redux, Django and TailwindCSS. A simple browser game, where users can buy coins for a gachapon vending machine in order to obtain a random sticker. Users can register, login, purchase in-game coins and see the stickers they have obtained so far, as well as access their transaction history.
 
 ## Key Features
  - Bundled with Webpack, no *create-react-app* used
