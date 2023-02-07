@@ -6,6 +6,8 @@
 ## About
 Gashapon Arcade Machine Simulator developed with React, Redux, Django and TailwindCSS. A simple browser game, where users can buy coins for a gachapon vending machine in order to obtain a random sticker. Users can register, login, purchase in-game coins and see the stickers they have obtained so far, as well as access their transaction history.
 
+![image](https://user-images.githubusercontent.com/83576552/217328386-36a50e58-2142-4a3d-8c3e-04379b3edaa7.png)
+
 ## Key Features
  - Bundled with Webpack, no *create-react-app* used
  - React functional components with hooks
@@ -50,4 +52,4 @@ login: liudmila.kazakbaeva@gmail.com // pass: QtSBqf3/Y6$NDgD
 - Liudmila Kazakbaeva
 
 ##  Copyright
-This project is licensed under the terms of the MIT license and protected by Udacity Honor Code and Community Code of Conduct. See <a href="LICENSE.md">license</a> and <a href="LICENSE.DISCLAIMER.md">disclaimer</a>.
+This project is licensed under the terms of the MIT license and protected by Udacity Honor Code and Community Code of Conduct. See <a href="LICENSE.md">license</a> and <a href="LICENSE.DISCLAIMER.md">disclaimer</a>. 
