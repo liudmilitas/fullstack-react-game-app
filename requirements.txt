@@ -1,5 +1,5 @@
 # backend requirements
 
-Django==4.1.4
+Django==4.1.10
 djangorestframework==3.14.0
 djangorestframework_simplejwt==4.8.0
